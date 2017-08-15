@@ -1,2 +1,48 @@
-<h1>StoredFiles#index</h1>
-<p>Find me in app/views/stored_files/index.html.erb</p>
+<div>
+  <h1>Файлообменник на скорую руку</h1>
+
+  <h2>Список файлов:</h2>
+  <table class="table table-border table-hover">
+    <thead>
+      <tr>
+	    <th>Файл</th>
+	    <th>Описание</th>
+	    <th>Загружен</th>
+	    <th>Размер</th>
+	    <th>Удалить</th>
+      </tr>
+    </thead>
+
+<%# @files.each do |file| %>
+<tr>
+<td><a href="/<%#= file.id %>" title="<%#=file.filename%>"><%#= file.filename %></a></td>
+<td><%#= file.created_at.strftime("%d %b")%></td>
+<td><a href="/<%#= file.id %>/delete" title="Удалить файл">Удалить</a></td>
+</tr>
+<%# end %>
+</table>
+
+<br/>
+<hr/>
+  
+
+  <h3>Добавить</h3>
+  <%= form_for :file, url: stored_files_path, method: :post do |f| %>
+    <%#= render partial: 'partials/form_errors', locals: {model: @file} %>
+
+    <div class="form-group">
+      <%= f.label :description, "Описание файла" %>
+      <%= f.text_area :description, class: 'form-control', rows: "5", cols: "50%" %>
+    </div>
+
+    <!-- <form name="new_file" id="new_file" method="POST" enctype="multipart/form-data"> -->
+    <!-- input type="file" name="file"/><br /> -->
+  
+    <div class="actions">
+      <%= f.submit 'Загрузать', class: 'btn btn-primary' %>
+    </div>
+
+  <% end %>
+
+
+</div>

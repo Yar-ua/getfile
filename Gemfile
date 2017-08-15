@@ -52,3 +52,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
+# гем для перевода сообщений девайса
+gem 'devise-i18n'
+# гем с русскими форматами (времени и пр.)
+gem 'russian'
+# гем, интегрирующий bootstrap
+gem 'bootstrap-sass'
+# гем для иконок
+gem 'font-awesome-rails'
+# гем для загрузки файлов
+gem 'carrierwave'

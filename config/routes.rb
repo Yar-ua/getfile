@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # статическая страница /about
   get '/about' => 'static_pages#about'
 
-  get 'stored_files/index'
+  # общий ресурс с файлами stored_files
+  resources :stored_files do
+  	#
+  end
 
 end
