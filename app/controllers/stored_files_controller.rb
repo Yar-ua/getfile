@@ -11,10 +11,10 @@ class StoredFilesController < ApplicationController
   end
 
   def create
-  	uploaded_io = params[:upload]   # encode('utf-8', :invalid => :replace, :undef => :replace, :replace => '_')
-#    uploaded_io = uploaded_io.encode('utf-8')
+  	uploaded_io = params[:upload]
     File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
-      file.write(uploaded_io.read)
+      # изменяем кодировку файлов на utd-8, чтобы загружать файлы любой кодировки
+      file.write(uploaded_io.read.force_encoding("utf-8"))
     end
     redirect_to :root
   end

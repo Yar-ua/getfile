@@ -33,21 +33,21 @@
     <div class="form-group">
       <%#= f.label :description, "Описание файла" %>
       <%#= f.text_area :description, class: 'form-control', rows: "5", cols: "50%" %>
-    </div>
+
 
     <%#= form_tag({:action => :create}, :multipart => true) do %>
       <%#= file_field_tag 'new_file' %>
     <%# end %>
 
-    <%= form_tag({:action => :create}, :multipart => true) do %>
-      <%= file_field_tag 'upload' %>
+      <%= form_tag({:action => :create}, :multipart => true) do %>
+        <%= file_field_tag 'upload' %>
 
-      <div class="actions">
-        <%= submit_tag 'Загрузать', class: 'btn btn-primary' %>
-      </div>
+        <div class="actions">
+          <%= submit_tag 'Загрузать', class: 'btn btn-primary' %>
+        </div>
 
-    <% end %>
-
+      <% end %>
+    </div>
 
     <!-- <form name="new_file" id="new_file" method="POST" enctype="multipart/form-data"> -->
     <!-- input type="file" name="file"/><br /> -->
