@@ -2,6 +2,7 @@ class StoredFilesController < ApplicationController
   
   def index
     @files = StoredFile.all.order('created_at DESC')
+    @new_file = StoredFile.new
   end
 
 
@@ -10,8 +11,12 @@ class StoredFilesController < ApplicationController
   end
 
   def create
-  	@file = StoredFile.new(file_params)
-
+  	uploaded_io = params[:upload]   # encode('utf-8', :invalid => :replace, :undef => :replace, :replace => '_')
+#    uploaded_io = uploaded_io.encode('utf-8')
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
+      file.write(uploaded_io.read)
+    end
+    redirect_to :root
   end
 
 

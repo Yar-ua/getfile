@@ -27,22 +27,30 @@
   
 
   <h3>Добавить</h3>
-  <%= form_for :file, url: stored_files_path, method: :post do |f| %>
+  <%#= form_for :file, url: stored_files_path, method: :post do |f| %>
     <%#= render partial: 'partials/form_errors', locals: {model: @file} %>
 
     <div class="form-group">
-      <%= f.label :description, "Описание файла" %>
-      <%= f.text_area :description, class: 'form-control', rows: "5", cols: "50%" %>
+      <%#= f.label :description, "Описание файла" %>
+      <%#= f.text_area :description, class: 'form-control', rows: "5", cols: "50%" %>
     </div>
+
+    <%#= form_tag({:action => :create}, :multipart => true) do %>
+      <%#= file_field_tag 'new_file' %>
+    <%# end %>
+
+    <%= form_tag({:action => :create}, :multipart => true) do %>
+      <%= file_field_tag 'upload' %>
+
+      <div class="actions">
+        <%= submit_tag 'Загрузать', class: 'btn btn-primary' %>
+      </div>
+
+    <% end %>
+
 
     <!-- <form name="new_file" id="new_file" method="POST" enctype="multipart/form-data"> -->
     <!-- input type="file" name="file"/><br /> -->
-  
-    <div class="actions">
-      <%= f.submit 'Загрузать', class: 'btn btn-primary' %>
-    </div>
-
-  <% end %>
 
 
 </div>
