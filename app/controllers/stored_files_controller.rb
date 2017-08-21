@@ -1,8 +1,8 @@
 class StoredFilesController < ApplicationController
   
   def index
-    @files = StoredFile.all.order('created_at DESC')
-    @new_file = StoredFile.new
+    #@files = StoredFile.all.order('created_at DESC')
+    #@new_file = StoredFile.new
   end
 
 
