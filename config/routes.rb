@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   # общий ресурс с файлами stored_files
   resources :stored_files
-  
-  
+    
 
 end
