@@ -31,7 +31,7 @@
   <%#= form_for :file, url: stored_files_path, method: :post do |f| %>
     <%#= render partial: 'partials/form_errors', locals: {model: @file} %>
     <%#= form_tag({:action => :create}, :multipart => true) do |f| %>
-    <%= form_for :new_file do |f| %>
+    <%= form_for(:new_file, url: stored_files_path, method: :post ) do |f| %>
 
       <%= f.label :description, "Описание файла" %>
       <%= f.text_area :description, class: 'form-control', rows: "5", cols: "50%" %>

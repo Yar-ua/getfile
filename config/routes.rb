@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  # точка вхлда
+  # точка входа
   root to: 'stored_files#index'
 
   # статическая страница /about
   get '/about' => 'static_pages#about'
 
   # общий ресурс с файлами stored_files
-  resources :stored_files do
-  	#
-  end
+  resources :stored_files
+  
+  
 
 end
