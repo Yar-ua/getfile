@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815181655) do
+ActiveRecord::Schema.define(version: 20170821195720) do
 
   create_table "stored_files", force: :cascade do |t|
-    t.string "filename", null: false
-    t.text "description", null: false
-    t.integer "size"
+    t.string "name"
+    t.text "description"
+    t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["description"], name: "index_stored_files_on_description"
+    t.index ["name"], name: "index_stored_files_on_name"
   end
 
 end
