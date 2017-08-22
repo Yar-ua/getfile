@@ -1,19 +1,16 @@
 class StoredFilesController < ApplicationController
   
+
   def index
     @files = StoredFile.all.order('created_at DESC')
   end
 
 
-  def new
-  	#
-  end
-
   def create
     temp = file_params
     
     # проверяем, выбран ли загружаемый файл, если нет - отбиваем alert
-    if temp[:upload] != nil
+    #if temp[:upload] != nil
       @new_file = StoredFile.new(name: temp[:upload].original_filename, 
                                 description: temp[:description],
                                 size: temp[:upload].size)
@@ -30,9 +27,9 @@ class StoredFilesController < ApplicationController
         redirect_to root_path, alert: 'Файл не загружен, что то пошло не так'
       end
 
-    else
-      redirect_to root_path, alert: 'Вы должны выбрать файл для загрузки'
-    end
+    #else
+    #  redirect_to root_path, alert: 'Вы должны выбрать файл для загрузки'
+    #end
   end
 
 
