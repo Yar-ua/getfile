@@ -1,8 +1,12 @@
 class StoredFilesController < ApplicationController
+
+  # перед экшеном определяем скачиваемый файл
+  before_action :set_file, only: [:show]
+  before_action :set_all_files, only: [:index, :show]
   
 
   def index
-    @files = StoredFile.all.order('created_at DESC')
+
   end
 
 
@@ -27,16 +31,36 @@ class StoredFilesController < ApplicationController
         redirect_to root_path, alert: 'Файл не загружен, что то пошло не так'
       end
 
+    # требуется валидация от пустого поля :upload
+
     #else
     #  redirect_to root_path, alert: 'Вы должны выбрать файл для загрузки'
     #end
   end
 
 
+  def show
+    # перед экшеном выполняется запрос текущего объекта в ф-ии get_file
+    send_file Rails.root.join('public', 'uploads', @file.name), filename: @file.name, type: 'Application/octet-stream' #disposition: "inline" 
+    #render :nothing => true
+    
+  end
+
+
   private
+
 
   def file_params
     params.require(:new_file).permit(:description, :upload)
+  end
+
+
+  def set_file
+    @file = StoredFile.find(params[:id])
+  end
+
+  def set_all_files
+    @files = StoredFile.all.order('created_at DESC')
   end
   
 end

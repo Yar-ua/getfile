@@ -1,5 +1,5 @@
 <tr>
-  <th><%= stored.name %></th>
+  <th><%= link_to stored.name, stored_file_path(stored) %></th>
   <th><%= stored.description %></th>
   <th><%= stored.created_at %></th>
   <th><%= stored.size %> байт</th>
