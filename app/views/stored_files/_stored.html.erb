@@ -3,6 +3,8 @@
   <th><%= stored.description %></th>
   <th><%= stored.created_at %></th>
   <th><%= stored.size %> байт</th>
-  <th><i class="fa fa-window-close" aria-hidden="true" color="red"></i>
-</th>
+  <th>
+    <%= link_to( fa_icon('window-close'), stored_file_path(stored), method: :delete,
+         style: "color:red", data: {confirm: 'Уверен что хочешь удалить?'} ) %>    	
+  </th>
 </tr>

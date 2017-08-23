@@ -1,7 +1,7 @@
 class StoredFilesController < ApplicationController
 
   # перед экшеном определяем скачиваемый файл
-  before_action :set_file, only: [:show]
+  before_action :set_file, only: [:show, :destroy]
   before_action :set_all_files, only: [:index, :show]
   
 
@@ -43,7 +43,13 @@ class StoredFilesController < ApplicationController
     # перед экшеном выполняется запрос текущего объекта в ф-ии get_file
     send_file Rails.root.join('public', 'uploads', @file.name), filename: @file.name, type: 'Application/octet-stream' #disposition: "inline" 
     #render :nothing => true
-    
+  end
+
+
+  def destroy
+    File.delete(Rails.root.join('public', 'uploads', @file.name))
+    @file.destroy
+    redirect_to root_path, notice: 'Файл был удален'
   end
 
 
