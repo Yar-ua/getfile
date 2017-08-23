@@ -14,7 +14,11 @@ class StoredFilesController < ApplicationController
     temp = file_params
     
     # проверяем, выбран ли загружаемый файл, если нет - отбиваем alert
-    #if temp[:upload] != nil
+    if temp[:upload] == nil
+      redirect_to root_path, alert: 'Нельзя загружать пустоту - Вы должны выбрать файл для загрузки'
+
+    # если загружаемый фал выбран
+    else
       @new_file = StoredFile.new(name: temp[:upload].original_filename, 
                                 description: temp[:description],
                                 size: temp[:upload].size)
@@ -31,17 +35,16 @@ class StoredFilesController < ApplicationController
         redirect_to root_path, alert: 'Файл не загружен, что то пошло не так'
       end
 
-    # требуется валидация от пустого поля :upload
+    end
 
-    #else
-    #  redirect_to root_path, alert: 'Вы должны выбрать файл для загрузки'
-    #end
   end
 
 
   def show
     # перед экшеном выполняется запрос текущего объекта в ф-ии get_file
     send_file Rails.root.join('public', 'uploads', @file.name), filename: @file.name, type: 'Application/octet-stream' #disposition: "inline" 
+    @file.downloads = @file.downloads  + 1
+    @file.save
     #render :nothing => true
   end
 
