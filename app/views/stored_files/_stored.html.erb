@@ -6,6 +6,6 @@
   <th><%= stored.size %> байт</th>
   <th>
     <%= link_to( fa_icon('window-close'), stored_file_path(stored), method: :delete,
-         style: "color:red", data: {confirm: 'Уверен что хочешь удалить?'} ) %>    	
+         style: "color:red", data: {confirm: 'Уверен что хочешь удалить?'}, remote: true ) %>    	
   </th>
 </tr>

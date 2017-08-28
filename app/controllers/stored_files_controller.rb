@@ -2,11 +2,14 @@ class StoredFilesController < ApplicationController
 
   # перед экшеном определяем скачиваемый файл
   before_action :set_file, only: [:update, :destroy]
-  before_action :set_all_files  #, only: [:index]
+  before_action :set_all_files #, only: [:index]
   
 
   def index
-
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
 

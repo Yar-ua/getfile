@@ -2,21 +2,23 @@
   <h1>Файлообменник на скорую руку</h1>
 
   <h2>Список файлов:</h2>
-  <table class="table table-border table-hover">
-    <thead>
-      <tr>
-	    <th>Файл</th>
-	    <th>Описание</th>
-      <th>Закачек</th>
-	    <th>Загружен</th>
-	    <th>Размер</th>
-	    <th>Действие</th>
-      </tr>
-    </thead>
+  <div id="stored_table">
+    <table class="table table-border table-hover">
+      <thead>
+        <tr>
+	      <th>Файл</th>
+	      <th>Описание</th>
+        <th>Закачек</th>
+	      <th>Загружен</th>
+	      <th>Размер</th>
+	      <th>Действие</th>
+        </tr>
+      </thead>
 
-  <%= render partial: 'stored', collection: @files %>
+      <%= render partial: 'stored', collection: @files %>
 
-  </table>
+    </table>
+  </div>
 
 
   <hr/>
