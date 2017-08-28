@@ -1,5 +1,5 @@
 <tr>
-  <th><%= link_to stored.name, stored_file_path(stored) %></th>
+  <th><%= link_to stored.name, stored_file_path(stored), method: :put %></th>
   <th><%= stored.description %></th>
   <th><%= stored.downloads %></th>
   <th><%= stored.created_at %></th>

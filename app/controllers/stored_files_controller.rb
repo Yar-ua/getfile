@@ -1,8 +1,8 @@
 class StoredFilesController < ApplicationController
 
   # перед экшеном определяем скачиваемый файл
-  before_action :set_file, only: [:show, :destroy]
-  before_action :set_all_files, only: [:index, :show]
+  before_action :set_file, only: [:update, :destroy]
+  before_action :set_all_files  #, only: [:index]
   
 
   def index
@@ -40,12 +40,12 @@ class StoredFilesController < ApplicationController
   end
 
 
-  def show
+  def update
     # перед экшеном выполняется запрос текущего объекта в ф-ии get_file
-    send_file Rails.root.join('public', 'uploads', @file.name), filename: @file.name, type: 'Application/octet-stream' #disposition: "inline" 
-    @file.downloads = @file.downloads  + 1
+    send_file Rails.root.join('public', 'uploads', @file.name), filename: @file.name, type: 'Application/octet-stream' #disposition: "inline"
+    @file.downloads += 1
     @file.save
-    #render :nothing => true
+    render :index
   end
 
 
