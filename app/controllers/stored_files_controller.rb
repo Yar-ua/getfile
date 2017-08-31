@@ -1,7 +1,7 @@
 class StoredFilesController < ApplicationController
 
   # перед экшеном определяем скачиваемый файл
-  before_action :set_file, only: [:update, :destroy]
+  before_action :set_file, only: [:download, :destroy]
   before_action :set_all_files #, only: [:index]
   
 
@@ -43,12 +43,11 @@ class StoredFilesController < ApplicationController
   end
 
 
-  def update
+  def download
     # перед экшеном выполняется запрос текущего объекта в ф-ии get_file
     send_file Rails.root.join('public', 'uploads', @file.name), filename: @file.name, type: 'Application/octet-stream' #disposition: "inline"
     @file.downloads += 1
     @file.save
-    render :index
   end
 
 
@@ -56,6 +55,7 @@ class StoredFilesController < ApplicationController
     File.delete(Rails.root.join('public', 'uploads', @file.name))
     @file.destroy
     redirect_to root_path, notice: 'Файл был удален'
+  
   end
 
 

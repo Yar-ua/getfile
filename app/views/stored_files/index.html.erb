@@ -14,9 +14,13 @@
 	      <th>Действие</th>
         </tr>
       </thead>
+      <div id="file-table">
+        
+        <%#= render partial: 'stored', collection: @files %>
+      
+        <%= render 'index' %>
 
-      <%= render partial: 'stored', collection: @files %>
-
+      </div>
     </table>
   </div>
 

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
 
   # общий ресурс с файлами stored_files
-  resources :stored_files
+  resources :stored_files, only: [:index, :create, :destroy]
+  get 'stored_files/:id', action: :download, controller: 'stored_files' 
     
 
 end

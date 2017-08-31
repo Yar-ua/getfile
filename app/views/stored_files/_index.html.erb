@@ -1,0 +1,17 @@
+<% @files.each do |stored| %>
+
+  <tr>
+    <th class="download-link"><%= link_to stored.name, stored_file_path(stored) %></th>
+    <th><%= stored.description %></th>
+    <th><%= stored.downloads %></th>
+    <th><%= stored.created_at %></th>
+    <th><%= stored.size %> байт</th>
+    <th>
+      <%= link_to( fa_icon('window-close'), stored_file_path(stored), method: :delete,
+      style: "color:red", data: {confirm: 'Уверен что хочешь удалить?'}, remote: true, 
+      class: 'delete-file', onclick: "return Counter()" ) %>     
+    </th>
+  </tr>
+
+<% end %>
+

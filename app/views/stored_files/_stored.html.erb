@@ -1,7 +1,7 @@
 <tr>
-  <th><%= link_to stored.name, stored_file_path(stored), method: :put %></th>
+  <th class="download-link"><%= link_to stored.name, stored_file_path(stored) %></th>
   <th><%= stored.description %></th>
-  <th><%= stored.downloads %></th>
+  <th><div class="counter"></div><%#= stored.downloads %></th>
   <th><%= stored.created_at %></th>
   <th><%= stored.size %> байт</th>
   <th>
@@ -9,3 +9,4 @@
          style: "color:red", data: {confirm: 'Уверен что хочешь удалить?'}, remote: true ) %>    	
   </th>
 </tr>
+
