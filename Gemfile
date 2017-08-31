@@ -65,3 +65,4 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 # гем для загрузки файлов
 gem 'carrierwave'
+gem 'jquery-rails'

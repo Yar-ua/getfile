@@ -14,32 +14,13 @@
 	      <th>Действие</th>
         </tr>
       </thead>
-      <div id="file-table">
-        
         <%#= render partial: 'stored', collection: @files %>
-      
         <%= render 'index' %>
-
-      </div>
     </table>
   </div>
 
 
   <hr/>
-  <h3>Добавить</h3>
-  <div>
-
-    <%= form_for(:new_file, url: stored_files_path, method: :post ) do |f| %>
-
-      <%= f.label :description, "Описание файла" %>
-      <%= f.text_area :description, placeholder: 'Желательно бы вставить описание файла...', class: 'form-control', rows: "5", cols: "50%" %>
-
-      <%= f.file_field :upload %>
-
-      <%= f.submit 'Загрузить', class: 'btn btn-primary' %>
-
-    <% end %>
-
-  </div>
+  <%= link_to 'Загрузить файл', new_stored_file_path, id: 'upload_link', remote: true %>
 
 </div>
