@@ -1,7 +1,9 @@
-<%= form_for(:new_file, url: stored_files_path, method: :post ) do |f| %>
+<%= form_for(:new_file, url: stored_files_path, method: :post, id: "upload_form", 
+remote: true ) do |f| %>
 
   <%= f.label :description, "Описание файла" %>
-  <%= f.text_area :description, placeholder: 'Желательно бы вставить описание файла...', class: 'form-control', rows: "5", cols: "50%" %>
+  <%= f.text_area :description, placeholder: 'Желательно бы вставить описание файла...', 
+  class: 'form-control', rows: "5", cols: "50%" %>
 
   <%= f.file_field :upload %>
 

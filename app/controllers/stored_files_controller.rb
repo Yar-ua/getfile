@@ -2,7 +2,7 @@ class StoredFilesController < ApplicationController
 
   # перед экшеном определяем скачиваемый файл
   before_action :set_file, only: [:download, :destroy]
-  before_action :set_all_files #, only: [:index]
+  before_action :set_all_files
   
 
   def index
@@ -34,9 +34,15 @@ class StoredFilesController < ApplicationController
       end
 
       if @new_file.save
-        redirect_to root_path, notice: 'Файл успешно загружен'
+        respond_to do |format|
+          format.html { redirect_to root_path, notice: 'Файл успешно загружен' }
+          format.js
+        end
       else
-        redirect_to root_path, alert: 'Файл не загружен, что то пошло не так'
+        respond_to do |format|
+          format.html { redirect_to root_path, alert: 'Файл не загружен, что то пошло не так' }
+          format.js
+        end
       end
 
     end
