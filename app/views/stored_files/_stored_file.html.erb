@@ -1,7 +1,7 @@
 <tr>
-  <th class="download-link"><%= link_to stored_file.name, stored_file_path(stored_file) %></th>
+  <th class="download-link"><%= link_to stored_file.name, stored_file_path(stored_file), method: :patch %></th>
   <th><%= stored_file.description %></th>
-  <th><div class="counter"></div><%#= stored.downloads %></th>
+  <th><div class="counter"></div><%= stored_file.downloads %></th>
   <th><%= stored_file.created_at %></th>
   <th><%= stored_file.size %> байт</th>
   <th>

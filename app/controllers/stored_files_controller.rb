@@ -1,7 +1,7 @@
 class StoredFilesController < ApplicationController
 
   # перед экшеном определяем скачиваемый файл
-  before_action :set_file, only: [:download, :destroy]
+  before_action :set_file, only: [:update, :destroy]
   before_action :set_all_files
   
 
@@ -34,15 +34,9 @@ class StoredFilesController < ApplicationController
       end
 
       if @new_file.save
-        respond_to do |format|
-          format.html { redirect_to root_path, notice: 'Файл успешно загружен' }
-          format.js
-        end
+        redirect_to root_path, notice: 'Файл успешно загружен'
       else
-        respond_to do |format|
-          format.html { redirect_to root_path, alert: 'Файл не загружен, что то пошло не так' }
-          format.js
-        end
+        redirect_to root_path, alert: 'Файл не загружен, что то пошло не так' 
       end
 
     end
@@ -50,11 +44,11 @@ class StoredFilesController < ApplicationController
   end
 
 
-  def download
+  def update
     # перед экшеном выполняется запрос текущего объекта в ф-ии get_file
-    send_file Rails.root.join('public', 'uploads', @file.name), filename: @file.name, type: 'Application/octet-stream' #disposition: "inline"
+    send_file Rails.root.join('public', 'uploads', @file.name), filename: @file.name, type: 'Application/octet-stream', disposition: "attachment" #disposition: "inline"
     @file.downloads += 1
-    @file.save
+    @file.update(downloads: @file.downloads)
   end
 
 
