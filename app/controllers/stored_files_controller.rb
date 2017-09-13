@@ -15,6 +15,7 @@ class StoredFilesController < ApplicationController
 
 
   def create
+    # создается объект класса File
     temp = file_params
     
     # проверяем, выбран ли загружаемый файл, если нет - отбиваем alert
@@ -25,7 +26,8 @@ class StoredFilesController < ApplicationController
     else
       @new_file = StoredFile.new(name: temp[:upload].original_filename, 
                                 description: temp[:description],
-                                size: temp[:upload].size)
+                                size: temp[:upload].size,
+                                filetype: File.extname(temp[:upload].original_filename) )
 
   	  uploaded_io = params[:new_file][:upload]
       File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|

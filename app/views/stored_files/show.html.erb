@@ -1,7 +1,5 @@
 <div>
-  <h1>Файлообменник на скорую руку</h1>
-
-  <h2>Список файлов:</h2>
+  <h2>Просмотр файла:</h2>
   <div id="stored_table">
     <table class="table table-border table-hover">
       <thead>
@@ -23,5 +21,3 @@
   <%= link_to 'Загрузить файл', new_stored_file_path, id: 'upload_link', remote: true %>
 
 </div>
-
-<%= @new_file.inspect %>
