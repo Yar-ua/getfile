@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170913230848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "downloads", default: 0, null: false
+    t.text "ext"
     t.text "filetype"
     t.index ["description"], name: "index_stored_files_on_description"
     t.index ["name"], name: "index_stored_files_on_name"

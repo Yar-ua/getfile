@@ -27,7 +27,9 @@ class StoredFilesController < ApplicationController
       @new_file = StoredFile.new(name: temp[:upload].original_filename, 
                                 description: temp[:description],
                                 size: temp[:upload].size,
-                                filetype: File.extname(temp[:upload].original_filename) )
+                                ext: File.extname(temp[:upload].original_filename) )
+
+      @new_file[:filetype] = @new_file.describe_type
 
   	  uploaded_io = params[:new_file][:upload]
       File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
