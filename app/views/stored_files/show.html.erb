@@ -4,20 +4,18 @@
     <table class="table table-border table-hover">
       <thead>
         <tr>
-	      <th>Файл</th>
-	      <th>Описание</th>
-        <th>Закачек</th>
-	      <th>Загружен</th>
-	      <th>Размер</th>
-	      <th>Действие</th>
+          <th></th>
+	        <th>Файл</th>
+	        <th>Описание</th>
+          <th>Закачек</th>
+	        <th>Загружен</th>
+	        <th>Размер</th>
+	        <th>Действие</th>
         </tr>
       </thead>
         <%= render @files %>
     </table>
   </div>
 
-
-  <hr/>
-  <%= link_to 'Загрузить файл', new_stored_file_path, id: 'upload_link', remote: true %>
 
 </div>

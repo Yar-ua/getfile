@@ -2,7 +2,8 @@
   <th></th>
   <th class="download-link">
   	<%= link_to stored_file.name, stored_file_path(stored_file) %><br/>
-  	<%= link_to( fa_icon('download') + " скачать", stored_file_path(stored_file), method: :patch ) %>
+  	<%= link_to( fa_icon('download') + " скачать", stored_file_path(stored_file), method: :patch ) %><br/>
+  	<внешняя ссылка для скачки>
   </th>
   <th><%= stored_file.description %></th>
   <th><div class="counter"></div><%= stored_file.downloads %></th>
