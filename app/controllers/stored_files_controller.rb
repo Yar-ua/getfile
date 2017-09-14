@@ -1,4 +1,5 @@
 class StoredFilesController < ApplicationController
+  include StoredFilesHelper
 
   # перед экшеном определяем скачиваемый файл
   before_action :set_file, only: [:show, :update, :destroy]

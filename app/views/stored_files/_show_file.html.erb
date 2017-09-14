@@ -38,6 +38,10 @@
     </table>
   </div>
   
-  <h4>Описание файла</h4>
-  <%= stored_file.description %>
+  <% if stored_file.description != "" %>
+    <%= content_tag(:h4, "Описание файла") %>
+    <%= stored_file.description %>
+  <% else %>
+    <%= content_tag(:p, "описание отсутствует...") %>
+  <% end %>
 </div>
