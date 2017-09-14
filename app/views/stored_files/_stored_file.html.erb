@@ -10,7 +10,7 @@
   <th><%= stored_file.created_at.to_s(:ru_datetime) %></th>
   <th><%= (stored_file.size.to_i / 1024) %> КБайт</th>
   <th>
-    <%= link_to( fa_icon('window-close'), stored_file_path(stored_file), method: :delete,
+    <%= link_to( fa_icon('window-close') + ' удалить', stored_file_path(stored_file), method: :delete,
          style: "color:red", data: {confirm: 'Уверен что хочешь удалить?'}, remote: true ) %> 	
   </th>
 </tr>

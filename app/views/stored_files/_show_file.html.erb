@@ -1,0 +1,43 @@
+<div>
+  <div id="stored_table">
+    <table class="table table-border table-hover">
+
+      <thead>
+        <tr>
+          <th></th>
+	        <th>Файл</th>
+	        <th>Тип</th>
+          <th>Просмотров</th>
+          <th>Закачек</th>
+	        <th>Загружен</th>
+	        <th>Размер</th>
+	        <th></th>
+        </tr>
+      </thead>
+
+      <tr>
+        <th></th>
+        <th>
+          <%= stored_file.name %><br/>
+          <%= link_to( fa_icon('download') + " скачать", stored_file_path(stored_file), 
+            method: :patch ) %><br/>
+          <внешняя ссылка для скачки>
+        </th>
+        <th><%= stored_file.filetype %></th>
+        <th></th>
+        <th><%= stored_file.downloads %></th>
+        <th><%= stored_file.created_at.to_s(:ru_datetime) %></th>
+        <th><%= (stored_file.size.to_i / 1024) %> КБайт</th>
+        <th>
+          <%= link_to( fa_icon('window-close') + ' удалить', stored_file_path(stored_file), 
+              method: :delete, style: "color:red", 
+              data: {confirm: 'Уверен что хочешь удалить?'}, remote: true ) %>   
+        </th>
+      </tr>
+
+    </table>
+  </div>
+  
+  <h4>Описание файла</h4>
+  <%= stored_file.description %>
+</div>
