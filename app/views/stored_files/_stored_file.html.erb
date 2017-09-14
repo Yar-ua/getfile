@@ -1,11 +1,12 @@
 <tr>
+  <th></th>
   <th class="download-link">
   	<%= link_to stored_file.name, stored_file_path(stored_file) %><br/>
   	<%= link_to( fa_icon('download') + " скачать", stored_file_path(stored_file), method: :patch ) %>
   </th>
   <th><%= stored_file.description %></th>
   <th><div class="counter"></div><%= stored_file.downloads %></th>
-  <th><%= stored_file.created_at %></th>
+  <th><%= stored_file.created_at.to_s(:ru_datetime) %></th>
   <th><%= (stored_file.size.to_i / 1024) %> КБайт</th>
   <th>
     <%= link_to( fa_icon('window-close'), stored_file_path(stored_file), method: :delete,
