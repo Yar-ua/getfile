@@ -1,7 +1,7 @@
 class StoredFilesController < ApplicationController
 
   # перед экшеном определяем скачиваемый файл
-  before_action :set_file, only: [:update, :destroy]
+  before_action :set_file, only: [:show, :update, :destroy]
   before_action :set_all_files
   
 
@@ -42,6 +42,10 @@ class StoredFilesController < ApplicationController
       end
 
     end
+  end
+
+
+  def show
 
   end
 
