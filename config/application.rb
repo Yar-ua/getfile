@@ -17,6 +17,13 @@ module Getfile
 
     config.i18n.default_locale = :ru
     config.time_zone = 'Europe/Kiev'
-    
+
+
+    # добавляю папку public/uploads в файлопровод
+    config.assets.paths << Rails.root.join("public", "uploads")
+    # прекомпиляция ассетов для картинок
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif, *.bmp)
+    config.assets.precompile = true
+
   end
 end
