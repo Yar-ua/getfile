@@ -4,7 +4,7 @@ class StoredFile < ApplicationRecord
 
   def describe_type
   	# определяем в массивах типы файлов для поиска типа
-  	videoarray = ['.avi', '.mkv', '.mov', '.mp4']
+  	videoarray = ['.avi', '.mkv', '.mov', '.mp4', '.mpeg']
   	audioarray = ['.mp3', '.wav']
   	imagearray = ['.jpg', '.jpeg', '.bmp', '.png']
 
