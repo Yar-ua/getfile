@@ -10,6 +10,12 @@ class StoredFilesController < ApplicationController
 
   end
 
+
+  def index_photo
+    return nil
+  end
+
+
   def new
     @new_file = StoredFile.new
   end

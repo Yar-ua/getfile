@@ -1,7 +1,9 @@
 <div>
-  <h1>Файлообменник на скорую руку</h1>
+  <h2>Файлообменник на скорую руку</h2>
 
-  <h2>Список файлов:</h2>
+  <h4>Список файлов: 
+    <%= link_to('фото', stored_files_path(@files = nil) ) %>
+    <все> <аудио> <видео> <архивы> </h4>
   <div id="stored_table">
     <table class="table table-border table-hover">
       <thead>
