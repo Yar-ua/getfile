@@ -1,2 +1,6 @@
-=============Партиал для video===============<br/>
-<%= video_tag @file.name %>
+<!-- подключаем videojs плейер -->
+<%= stylesheet_link_tag "http://vjs.zencdn.net/6.2.7/video-js.css" %>
+
+
+  <%= video_tag(stored_file.name, id: "my-video", class: "video-js", controls: true, preload: "auto", type: "video/mp4", width:"640", height:"264") %>
+

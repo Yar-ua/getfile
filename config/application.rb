@@ -24,7 +24,7 @@ module Getfile
     # прекомпиляция ассетов для картинок
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.bmp)
     config.assets.precompile += %w(*.mp3 *.wav)
-    config.assets.precompile += %w(*.avi *.mkv *.mov *.mp4 *.mpeg)
+    config.assets.precompile += %w(*.avi *.mkv *.mov *.mp4 *.mpeg *.webm *.ogv)
     # config.assets.precompile = true
 
   end
