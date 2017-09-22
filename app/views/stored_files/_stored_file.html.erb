@@ -1,5 +1,5 @@
 <tr>
-  <th></th>
+  <th><%= show_me_icon(stored_file.filetype) %></th>
   <th class="download-link">
   	<%= link_to stored_file.name, stored_file_path(stored_file) %><br/>
   	<%= link_to( fa_icon('download') + " скачать", stored_file_path(stored_file), method: :patch ) %><br/>

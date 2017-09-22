@@ -5,8 +5,9 @@ class StoredFile < ApplicationRecord
   def describe_type
   	# определяем в массивах типы файлов для поиска типа
   	videoarray = ['.avi', '.mkv', '.mov', '.mp4', '.mpeg', '.webm', '.ogv']
-  	audioarray = ['.mp3', '.wav']
+  	audioarray = ['.mp3', '.wav', '.aac']
   	imagearray = ['.jpg', '.jpeg', '.bmp', '.png']
+    archievearray = ['.rar', '.zip', '.7z', '.tar', '.deb', '.pkg', '.rpm' '.gzip']
 
     # получаем из оюъекта расширение сохраненного файла для сравнения
   	required = self.ext
@@ -17,6 +18,8 @@ class StoredFile < ApplicationRecord
       return 'audio'
     elsif imagearray.include?(required)
       return 'image'
+    elsif archievearray.include?(required)
+      return 'archieve'
     else
       return 'unknown'
     end

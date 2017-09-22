@@ -23,8 +23,9 @@ module Getfile
     config.assets.paths << Rails.root.join("public", "uploads")
     # прекомпиляция ассетов для картинок
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.bmp)
-    config.assets.precompile += %w(*.mp3 *.wav)
+    config.assets.precompile += %w(*.mp3 *.wav *.aac)
     config.assets.precompile += %w(*.avi *.mkv *.mov *.mp4 *.mpeg *.webm *.ogv)
+    config.assets.precompile += %w(*.rar *.zip *.7z *.tar *.deb *.pkg *.rpm *.gzip)
     # config.assets.precompile = true
 
   end
