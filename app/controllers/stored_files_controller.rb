@@ -11,12 +11,6 @@ class StoredFilesController < ApplicationController
   end
 
 
-  def select_images
-    @files = StoredFile.where(filetype: 'image').order('created_at DESC')
-    render action: :index
-  end
-
-
   def new
     @new_file = StoredFile.new
   end
@@ -75,7 +69,16 @@ class StoredFilesController < ApplicationController
   
   end
 
+  # экшены для выбора нужных типов файлов из списка
 
+  def select_filelist
+    # получаем список файлов в зависимости от типа файла через процедуру set_filelist_by_type
+    # параметр :filetype передается из ссылки link_to вьюхи index
+    set_filelist_by_type
+    render action: :index
+  end
+
+  
   private
 
 
@@ -88,8 +91,14 @@ class StoredFilesController < ApplicationController
     @file = StoredFile.find(params[:id])
   end
 
+
   def set_all_files
     @files = StoredFile.all.order('created_at DESC')
   end
   
+  
+  def set_filelist_by_type
+    @files = StoredFile.where(filetype: params[:filetype]).order('created_at DESC')
+  end
+
 end

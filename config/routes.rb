@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # общий ресурс с файлами stored_files
   resources :stored_files do
   	collection do
-  	  get 'select_images'
+  	  get 'select_filelist'
   	end
   end
       

@@ -2,8 +2,13 @@
   <h2>Файлообменник на скорую руку</h2>
 
   <h4>Список файлов: 
-    <%= link_to('фото', select_images_stored_files_path ) %>
-    <все> <аудио> <видео> <архивы> </h4>
+    <%= link_to('все', stored_files_path) %>
+    <%= link_to('фото', select_filelist_stored_files_path(filetype: 'image') ) %>
+    <%= link_to('музыка', select_filelist_stored_files_path(filetype: 'audio') ) %>
+    <%= link_to('видео', select_filelist_stored_files_path(filetype: 'video') ) %>
+    <%= link_to('архивы', select_filelist_stored_files_path(filetype: 'archieve') ) %>
+    <%= link_to('разное', select_filelist_stored_files_path(filetype: 'unknown') ) %>
+  </h4>
   <div id="stored_table">
     <table class="table table-border table-hover">
       <thead>
