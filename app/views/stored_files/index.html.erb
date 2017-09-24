@@ -27,6 +27,10 @@
     </table>
   </div>
 
+  <div class="digg_pagination">
+    <%= will_paginate @files, :container => false %>
+  </div>
+
 
   <hr/>
   <%= link_to 'Загрузить файл', new_stored_file_path, id: 'upload_link', remote: true %>

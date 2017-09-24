@@ -64,5 +64,5 @@ gem 'bootstrap-sass'
 # гем для иконок
 gem 'font-awesome-rails'
 # гем для загрузки файлов
-gem 'carrierwave'
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.1.1'

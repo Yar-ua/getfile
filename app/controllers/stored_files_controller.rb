@@ -93,12 +93,12 @@ class StoredFilesController < ApplicationController
 
 
   def set_all_files
-    @files = StoredFile.all.order('created_at DESC')
+    @files = StoredFile.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
   
   
   def set_filelist_by_type
-    @files = StoredFile.where(filetype: params[:filetype]).order('created_at DESC')
+    @files = StoredFile.where(filetype: params[:filetype]).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
 end
