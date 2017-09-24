@@ -26,6 +26,7 @@ module Getfile
     config.assets.precompile += %w(*.mp3 *.wav *.aac)
     config.assets.precompile += %w(*.avi *.mkv *.mov *.mp4 *.mpeg *.webm *.ogv)
     config.assets.precompile += %w(*.rar *.zip *.7z *.tar *.deb *.pkg *.rpm *.gzip)
+    config.assets.precompile += %w(*.doc *.docx *.xls *.xlsx *.pdf *.ppt *.rtf)
     # config.assets.precompile = true
 
   end

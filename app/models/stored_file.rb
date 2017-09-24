@@ -8,6 +8,7 @@ class StoredFile < ApplicationRecord
   	audioarray = ['.mp3', '.wav', '.aac']
   	imagearray = ['.jpg', '.jpeg', '.bmp', '.png']
     archievearray = ['.rar', '.zip', '.7z', '.tar', '.deb', '.pkg', '.rpm' '.gzip']
+    docarray = ['.doc', '.docx', '.xls', '.xlsx', '.pdf', '.ppt', '.rtf']
 
     # получаем из оюъекта расширение сохраненного файла для сравнения
   	required = self.ext
@@ -20,6 +21,8 @@ class StoredFile < ApplicationRecord
       return 'image'
     elsif archievearray.include?(required)
       return 'archieve'
+    elsif docearray.include?(required)
+      return 'document'
     else
       return 'unknown'
     end
