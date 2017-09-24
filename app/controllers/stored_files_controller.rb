@@ -11,8 +11,9 @@ class StoredFilesController < ApplicationController
   end
 
 
-  def index_photo
-    return nil
+  def select_images
+    @files = StoredFile.where(filetype: 'image').order('created_at DESC')
+    render action: :index
   end
 
 

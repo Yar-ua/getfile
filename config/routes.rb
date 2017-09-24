@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get '/about' => 'static_pages#about'
 
   # общий ресурс с файлами stored_files
-  resources :stored_files
+  resources :stored_files do
+  	collection do
+  	  get 'select_images'
+  	end
+  end
       
 
 end
